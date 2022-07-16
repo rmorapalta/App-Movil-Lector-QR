@@ -1,22 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:flutter/services.dart';
+import 'package:snippet_coder_utils/ProgressHUD.dart';
+import 'package:snippet_coder_utils/hex_color.dart';
 
-class QRReaderScreen extends StatefulWidget {
-  const QRReaderScreen({Key? key}) : super(key: key);
+
+
+class CodeQrPage extends StatefulWidget {
+  const CodeQrPage({Key? key}) : super(key: key);
 
   @override
-  State<QRReaderScreen> createState() => _QRReaderScreenState();
+  State<CodeQrPage> createState() => _CodeQrPageState();
 }
 
-class _QRReaderScreenState extends State<QRReaderScreen> {
+class _CodeQrPageState extends State<CodeQrPage> {
   MobileScannerController cameraController = MobileScannerController();
+  bool isAPIcallProcess = false;
+  bool hidePassword = true;
+  GlobalKey<FormState> globalFormKey = GlobalKey<FormState>();
+
 
   @override
   Widget build(BuildContext context) {
+    return SafeArea(
+      child:Scaffold(
+        backgroundColor: HexColor("#283B71"),
+        body: ProgressHUD(
+          inAsyncCall: isAPIcallProcess,
+          opacity: 0.3,
+          key: UniqueKey(),
+          child:Form(
+            key: globalFormKey,
+            child: _loginUI(context),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Scaffold _loginUI(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mobile Scanner'),
+        title: const Text('Lector QR'),
         actions: [
           IconButton(
             color: Colors.white,
@@ -53,19 +77,16 @@ class _QRReaderScreenState extends State<QRReaderScreen> {
         ],
       ),
       body: MobileScanner(
-        allowDuplicates: false,
-        controller: cameraController,
-        onDetect: (Barcode barcode, args) {
-          if (barcode.rawValue == null) {
-            return;
+          allowDuplicates: false,
+          controller: cameraController,
+          onDetect: (barcode, args) {
+            if (barcode.rawValue == null) {
+              debugPrint('Error al escanear');
+            } else {
+              final String code = barcode.rawValue!;
+              debugPrint('Escaneo Exitoso! $code');
+            }
           }
-
-          final String code = barcode.rawValue!;
-          debugPrint("Going to heavy Impact!");
-          HapticFeedback.lightImpact();
-          Navigator.pop(context);
-          debugPrint('Barcode found! $code');
-        },
       ),
     );
   }

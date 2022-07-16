@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:proyect_movil_app/pages/home.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
@@ -174,16 +175,21 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 50,
           ),
           Center(
-            child: FormHelper.submitButton(
-                "Login",
-                () {},
-              btnColor: HexColor("#283B71"),
-              borderColor: Colors.white,
-              txtColor: Colors.white,
-              borderRadius: 10,
+            child: SizedBox(
+              height: 60,
+              width: 200,
+              child: ElevatedButton(
+                child: const Text('Ingresar', style: TextStyle(fontSize: 20.0),),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),
+                  );
+                },
+              ),
             ),
           ),
           const SizedBox(

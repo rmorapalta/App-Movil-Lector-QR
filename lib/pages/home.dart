@@ -4,7 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:proyect_movil_app/pages/attendances.dart';
 import 'package:proyect_movil_app/pages/code_qr.dart';
-import 'package:snippet_coder_utils/FormHelper.dart';
+import 'package:proyect_movil_app/pages/developers.dart';
+import 'package:proyect_movil_app/pages/login.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
 
@@ -14,13 +15,14 @@ class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _LoginPageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _LoginPageState extends State<HomePage> {
+
+class _HomePageState extends State<HomePage> {
   bool isAPIcallProcess = false;
-  bool hidePassword = true;
   GlobalKey<FormState> globalFormKey = GlobalKey<FormState>();
+
 
 
   @override
@@ -34,14 +36,14 @@ class _LoginPageState extends State<HomePage> {
           key: UniqueKey(),
           child:Form(
             key: globalFormKey,
-            child: _loginUI(context),
+            child: _HomeUI(context),
           ),
         ),
       ),
     );
   }
 
-  SingleChildScrollView _loginUI(BuildContext context) {
+  SingleChildScrollView _HomeUI(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -99,45 +101,54 @@ class _LoginPageState extends State<HomePage> {
             height: 20,
           ),
           Center(
-            child: FormHelper.submitButton(
-              "Lector-QR",
-                  () {},
-              btnColor: HexColor("#283B71"),
-              borderColor: Colors.white,
-              txtColor: Colors.white,
-              borderRadius: 10,
+            child: SizedBox(
               height: 60,
               width: 200,
+              child: ElevatedButton(
+                child: const Text('Lector-QR', style: TextStyle(fontSize: 20.0),),
+                  onPressed: () {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const CodeQrPage()),
+                  );
+                  },
+              ),
+            ),
+            ),
+          const SizedBox(
+            height: 20,
+          ),
+          Center(
+            child: SizedBox(
+              height: 60,
+              width: 200,
+              child: ElevatedButton(
+                child: const Text('Asistencia', style: TextStyle(fontSize: 20.0),),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const AttendancesPage()),
+                  );
+                },
+              ),
             ),
           ),
           const SizedBox(
             height: 20,
           ),
           Center(
-            child: FormHelper.submitButton(
-              "Asistencia",
-                  () {},
-              btnColor: HexColor("#283B71"),
-              borderColor: Colors.white,
-              txtColor: Colors.white,
-              borderRadius: 10,
+            child: SizedBox(
               height: 60,
               width: 200,
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Center(
-            child: FormHelper.submitButton(
-              "Desarrolladores",
-                  () {},
-              btnColor: HexColor("#283B71"),
-              borderColor: Colors.white,
-              txtColor: Colors.white,
-              borderRadius: 10,
-              height: 60,
-              width: 200,
+              child: ElevatedButton(
+                child: const Text('Desarrolladores', style: TextStyle(fontSize: 20.0),),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const DevPage()),
+                  );
+                },
+              ),
             ),
           ),
           const SizedBox(
@@ -148,12 +159,26 @@ class _LoginPageState extends State<HomePage> {
             children: [
               Align(
                 alignment: Alignment.center,
-                child: Image.asset(
-                  "assets/images/inicio.png",
-                  width: 250,
-                  height: 100,
-                  fit: BoxFit.contain,
+                child: Center(
+                  child: SizedBox(
+                    width: 80,
+                    height: 80,
+                    child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const LoginPage()),
+                      );
+                    },
+                  child: Image.asset(
+                    "assets/images/icono2.png",
+                    width: 350,
+                    height: 100,
+                    fit: BoxFit.contain,
+                  ),
+                  ),
                 ),
+              ),
               ),
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyect_movil_app/pages/code_qr.dart';
 import 'package:proyect_movil_app/pages/home.dart';
 import 'package:proyect_movil_app/pages/login.dart';
 import 'package:proyect_movil_app/pages/register.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        '/' : (context) => const DevPage(),
+        '/' : (context) => const LoginPage(),
         '/register': (context) => const RegisterPage()},
 
 
