@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
+import 'package:proyect_movil_app/pages/developers/luis.dart';
+import 'package:proyect_movil_app/pages/developers/rodrigo.dart';
+import 'package:proyect_movil_app/pages/developers/andres.dart';
 
 
 
@@ -90,8 +93,25 @@ class _DevPageState extends State<DevPage> {
               ),
             ),
           ),
+          const Padding(
+            padding: EdgeInsets.only(
+              left: 2,
+              bottom: 5,
+              top: 30,
+            ),
+            child: Center(
+              child: Text(
+                "Luis Rivas Sanchez",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.white70,
+                ),
+              ),
+            ),
+          ),
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
           Center(
             child: Align(
@@ -104,12 +124,42 @@ class _DevPageState extends State<DevPage> {
             ),
           ),
           const SizedBox(
-            height: 10,
-          ),
-          const Center(child: Text("Luis Rivas Sanchez",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
-          const Center(child: Text("luis.rivass@utem.cl",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
-          const SizedBox(
             height: 20,
+          ),
+          Center(
+            child: SizedBox(
+              height: 40,
+              width: 110,
+              child: ElevatedButton(
+                child: const Text('Mas Info', style: TextStyle(fontSize: 16.0),),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LuisPage()),
+                  );
+                },
+              ),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(
+              left: 2,
+              bottom: 5,
+              top: 30,
+            ),
+            child: Center(
+              child: Text(
+                "Rodrigo Mora Palta",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.white70,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
           ),
           Center(
             child: Align(
@@ -122,12 +172,42 @@ class _DevPageState extends State<DevPage> {
             ),
           ),
           const SizedBox(
-            height: 10,
-          ),
-          const Center(child: Text("Rodrigo Mora Palta",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
-          const Center(child: Text("rmora@utem.cl",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
-          const SizedBox(
             height: 20,
+          ),
+          Center(
+            child: SizedBox(
+              height: 40,
+              width: 110,
+              child: ElevatedButton(
+                child: const Text('Mas Info', style: TextStyle(fontSize: 16.0),),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const RodrigoPage()),
+                  );
+                },
+              ),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(
+              left: 2,
+              bottom: 5,
+              top: 30,
+            ),
+            child: Center(
+              child: Text(
+                "Andres Segarra Pavez",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.white70,
+    ),
+                ),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
           ),
           Center(
             child: Align(
@@ -140,23 +220,50 @@ class _DevPageState extends State<DevPage> {
             ),
           ),
           const SizedBox(
-            height: 10,
+            height: 20,
           ),
-          const Center(child: Text("Andres Segarra Pavez",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
-          const Center(child: Text("andres.segarrap@utem.cl",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
+          Center(
+            child: SizedBox(
+              height: 40,
+              width: 110,
+              child: ElevatedButton(
+                child: const Text('Mas Info', style: TextStyle(fontSize: 16.0),),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const RodrigoPage()),
+                  );
+                },
+              ),
+            ),
+          ),
           const SizedBox(
-            height: 100,
+            height: 50,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Align(
                 alignment: Alignment.center,
-                child: Image.asset(
-                  "assets/images/inicio.png",
-                  width: 250,
-                  height: 100,
-                  fit: BoxFit.contain,
+                child: Center(
+                  child: SizedBox(
+                    width: 60,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(
+                          context,
+
+                        );
+                      },
+                      child: Image.asset(
+                        "assets/images/flecha.png",
+                        width: 300,
+                        height: 100,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -167,3 +274,4 @@ class _DevPageState extends State<DevPage> {
     );
   }
 }
+

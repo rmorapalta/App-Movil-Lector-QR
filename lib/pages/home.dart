@@ -116,7 +116,7 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(
             height: 20,
           ),
-          Center(
+          /*Center(
             child: SizedBox(
               height: 60,
               width: 200,
@@ -131,7 +131,7 @@ class _HomePageState extends State<HomePage> {
 
               ),
             ),
-          ),
+          ),*/
           const SizedBox(
             height: 20,
           ),
@@ -164,9 +164,9 @@ class _HomePageState extends State<HomePage> {
                     height: 80,
                     child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pop(
                         context,
-                        MaterialPageRoute(builder: (context) => const LoginPage()),
+
                       );
                     },
                   child: Image.asset(

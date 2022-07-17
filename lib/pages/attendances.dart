@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 import 'package:proyect_movil_app/models/rest_consumer.dart';
 
 class AttendancesPage extends StatelessWidget {
@@ -32,7 +32,7 @@ Widget _buildItem(Student student) {
       print(student.classroom);
     },
   );
-}
+}*/
 
 
 
