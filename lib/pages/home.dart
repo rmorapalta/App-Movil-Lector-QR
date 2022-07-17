@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:proyect_movil_app/pages/attendances.dart';
@@ -8,7 +7,6 @@ import 'package:proyect_movil_app/pages/developers.dart';
 import 'package:proyect_movil_app/pages/login.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
-
 
 
 class HomePage extends StatefulWidget {
@@ -130,6 +128,7 @@ class _HomePageState extends State<HomePage> {
                     MaterialPageRoute(builder: (context) => const AttendancesPage()),
                   );
                 },
+
               ),
             ),
           ),

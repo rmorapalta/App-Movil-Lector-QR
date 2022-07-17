@@ -1,49 +1,39 @@
-import 'package:dio/dio.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
-class Asistencia {
-  String classroom;
-  String subject;
-  String entrance;
-  String leaving;
-  String email;
+class Student {
+  final String classroom;
+  final String subject;
+  final String entrance;
+  final String leaving;
+  final String email;
 
-  Asistencia({
-    required this.classroom,
-    required this.subject,
-    required this.entrance,
-    required this.leaving,
-    required this.email,
-  });
+  Student(
+      this.classroom, this.subject, this.entrance, this.leaving, this.email);
 
-  factory Asistencia.fromJson(Map<String, dynamic> json) {
-    return Asistencia(
-      classroom: json['classroom'],
-      subject: json['subject'],
-      entrance: json['entrance'],
-      leaving: json['leaving'],
-      email: json['email'],
+  factory Student.fromJson(Map<String, dynamic> data) {
+    return Student(
+      data['classroom'],
+      data['subject'],
+      data['entrance'],
+      data['leaving'],
+      data['email'],
     );
   }
 
-  static Future<List<Asistencia>> fetchAsistencias() async {
-    final api = dotenv.get("X_API_URL");
-    final response = await Dio(
-      BaseOptions(
-        headers: {
-          'jwt': "JWT",
-          'Accept': 'application/json',
-        },
-      ),
-    ).get("$api/v1/classroom/attendances");
+}
 
-    if (response.statusCode != 200) {
-      return Future.value([]);
-    }
+List<Student> parseStudent(String responseBody) {
+  final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
+  return parsed.map<Student>((json) => Student.fromJson(json)).toList();
+}
 
-    List<dynamic> list = List<dynamic>.from(response.data);
-    return List<Asistencia>.from(
-      list.map((e) => Asistencia.fromJson(e)).toList(),
-    );
+Future<List<Student>> fetchProducts() async {
+  final response = await http.get(Uri.parse('https://api.sebastian.cl/classroom/swagger-ui/index.html#/classroom-rest/attendances'));
+  if (response.statusCode == 200) {
+    return parseStudent(response.body);
+  } else {
+    throw Exception('No se leyó nada desde la REST API.');
   }
 }

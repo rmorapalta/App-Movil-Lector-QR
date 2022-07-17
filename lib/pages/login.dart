@@ -16,20 +16,19 @@ class _LoginPageState extends State<LoginPage> {
   bool isAPIcallProcess = false;
   bool hidePassword = true;
   GlobalKey<FormState> globalFormKey = GlobalKey<FormState>();
-  String?username;
-  String?password;
-
+  String? username;
+  String? password;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child:Scaffold(
+      child: Scaffold(
         backgroundColor: HexColor("#283B71"),
         body: ProgressHUD(
-        inAsyncCall: isAPIcallProcess,
+          inAsyncCall: isAPIcallProcess,
           opacity: 0.3,
           key: UniqueKey(),
-        child:Form(
+          child: Form(
             key: globalFormKey,
             child: _loginUI(context),
           ),
@@ -77,9 +76,9 @@ class _LoginPageState extends State<LoginPage> {
           ),
           const Padding(
             padding: EdgeInsets.only(
-            left: 20,
-            bottom: 30,
-            top: 50,
+              left: 20,
+              bottom: 30,
+              top: 50,
             ),
             child: Center(
               child: Text(
@@ -92,88 +91,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          FormHelper.inputFieldWidget(
-              context,
-              //const Icon(Icons.person),
-              "username",
-              "Username@utem.cl",
-              (onValidateVaL) {
-                if(onValidateVaL.isEmpty){
-                  return "Username can\ 't be empty.";
-                }
-
-                return null;
-              },
-              (onSavedVal) {
-                username = onSavedVal;
-              },
-              borderFocusColor: Colors.white,
-              prefixIconColor: Colors.white,
-              borderColor: Colors.white,
-              textColor: Colors.white,
-              hintColor: Colors.white.withOpacity(0.7),
-              borderRadius: 10,
-            ),
-          Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: FormHelper.inputFieldWidget(
-                context,
-                //Icon(Icons.person),
-                "password",
-                "Password",
-                    (onValidateVaL) {
-                  if(onValidateVaL.isEmpty){
-                    return "Password can\ 't be empty.";
-                  }
-
-                  return null;
-                },
-                    (onSavedVal) {
-                  password = onSavedVal;
-                },
-                borderFocusColor: Colors.white,
-                prefixIconColor: Colors.white,
-                borderColor: Colors.white,
-                textColor: Colors.white,
-                hintColor: Colors.white.withOpacity(0.7),
-                borderRadius: 10,
-                obscureText: hidePassword,
-                suffixIcon: IconButton(
-                    onPressed: () {},
-                    color: Colors.white.withOpacity(0.7),
-                    icon: Icon(
-                      hidePassword ? Icons.visibility_off : Icons.visibility,
-                    )
-                )
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 25, top: 10),
-              child: RichText(
-                  text: const TextSpan(
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14.0,
-                      ),
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: 'Forget Password ?',
-                          style: TextStyle(
-                            color: Colors.white,
-                            decoration: TextDecoration.underline,
-                          ),
-                          //recognizer: TapGestureRecognizer()..onTap = () {
-                          //print("Forget Password");
-                          //},
-                        ),
-                      ]
-                  )
-              ),
-
-            ),
-          ),
+          
           const SizedBox(
             height: 50,
           ),
@@ -182,7 +100,10 @@ class _LoginPageState extends State<LoginPage> {
               height: 60,
               width: 200,
               child: ElevatedButton(
-                child: const Text('Ingresar', style: TextStyle(fontSize: 20.0),),
+                child: const Text(
+                  'Ingresar con tu cuenta UTEM.',
+                  style: TextStyle(fontSize: 20.0),
+                ),
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -192,51 +113,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          const Center(
-            child: Text(
-              "OR",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Align(
-            alignment: Alignment.center,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 25, top: 10),
-              child: RichText(
-                  text: const TextSpan(
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14.0,
-                      ),
-                      children: <TextSpan>[
-                        TextSpan(text: "Dont´t have an account? "),
-                        TextSpan(
-                          text: 'Forget Password ?',
-                          style: TextStyle(
-                            color: Colors.white,
-                            decoration: TextDecoration.underline,
-                          ),
-                          //recognizer: TapGestureRecognizer()
-                            //..onTap = () {
-                              //Navigator.pushNamed(context, "/register");
-                            //},
-                        ),
-                      ]
-                  )
-              ),
-
-            ),
-          ),
+          
           const SizedBox(
             height: 20,
           ),

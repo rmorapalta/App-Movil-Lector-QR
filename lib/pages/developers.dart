@@ -44,7 +44,7 @@ class _DevPageState extends State<DevPage> {
         children: [
           Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height / 5.2,
+            height: MediaQuery.of(context).size.height / 7.2,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
@@ -55,8 +55,8 @@ class _DevPageState extends State<DevPage> {
                 ],
               ),
               borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(100),
-                bottomRight: Radius.circular(100),
+                bottomLeft: Radius.circular(50),
+                bottomRight: Radius.circular(50),
               ),
             ),
             child: Column(
@@ -66,7 +66,7 @@ class _DevPageState extends State<DevPage> {
                   alignment: Alignment.center,
                   child: Image.asset(
                     "assets/images/Utem.png",
-                    width: 250,
+                    width: 200,
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -76,15 +76,15 @@ class _DevPageState extends State<DevPage> {
           const Padding(
             padding: EdgeInsets.only(
               left: 2,
-              bottom: 30,
-              top: 50,
+              bottom: 5,
+              top: 30,
             ),
             child: Center(
               child: Text(
                 "Desarrolladores",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 25,
+                  fontSize: 35,
                   color: Colors.white70,
                 ),
               ),
@@ -94,47 +94,56 @@ class _DevPageState extends State<DevPage> {
             height: 20,
           ),
           Center(
-            child: FormHelper.submitButton(
-              "Lector-QR",
-                  () {},
-              btnColor: HexColor("#283B71"),
-              borderColor: Colors.white,
-              txtColor: Colors.white,
-              borderRadius: 10,
-              height: 60,
-              width: 200,
+            child: Align(
+              alignment: Alignment.center,
+              child: Image.asset(
+                "assets/images/luis.png",
+                width: 120,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Center(child: Text("Luis Rivas Sanchez",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
+          const Center(child: Text("luis.rivass@utem.cl",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
           const SizedBox(
             height: 20,
           ),
           Center(
-            child: FormHelper.submitButton(
-              "Asistencia",
-                  () {},
-              btnColor: HexColor("#283B71"),
-              borderColor: Colors.white,
-              txtColor: Colors.white,
-              borderRadius: 10,
-              height: 60,
-              width: 200,
+            child: Align(
+              alignment: Alignment.center,
+              child: Image.asset(
+                "assets/images/mora.png",
+                width: 120,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Center(child: Text("Rodrigo Mora Palta",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
+          const Center(child: Text("rmora@utem.cl",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
           const SizedBox(
             height: 20,
           ),
           Center(
-            child: FormHelper.submitButton(
-              "Desarrolladores",
-                  () {},
-              btnColor: HexColor("#283B71"),
-              borderColor: Colors.white,
-              txtColor: Colors.white,
-              borderRadius: 10,
-              height: 60,
-              width: 200,
+            child: Align(
+              alignment: Alignment.center,
+              child: Image.asset(
+                "assets/images/segarra.png",
+                width: 120,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Center(child: Text("Andres Segarra Pavez",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
+          const Center(child: Text("andres.segarrap@utem.cl",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
           const SizedBox(
             height: 100,
           ),
