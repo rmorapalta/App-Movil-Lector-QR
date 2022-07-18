@@ -104,19 +104,19 @@ class _HomePageState extends State<HomePage> {
               width: 200,
               child: ElevatedButton(
                 child: const Text('Lector-QR', style: TextStyle(fontSize: 20.0),),
-                  onPressed: () {
+                onPressed: () {
                   Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const CodeQrPage()),
+                    context,
+                    MaterialPageRoute(builder: (context) => const CodeQrPage()),
                   );
-                  },
+                },
               ),
             ),
-            ),
+          ),
           const SizedBox(
             height: 20,
           ),
-          /*Center(
+          Center(
             child: SizedBox(
               height: 60,
               width: 200,
@@ -131,7 +131,7 @@ class _HomePageState extends State<HomePage> {
 
               ),
             ),
-          ),*/
+          ),
           const SizedBox(
             height: 20,
           ),
@@ -163,21 +163,21 @@ class _HomePageState extends State<HomePage> {
                     width: 80,
                     height: 80,
                     child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(
-                        context,
+                      onPressed: () {
+                        Navigator.pop(
+                          context,
 
-                      );
-                    },
-                  child: Image.asset(
-                    "assets/images/icono2.png",
-                    width: 350,
-                    height: 100,
-                    fit: BoxFit.contain,
-                  ),
+                        );
+                      },
+                      child: Image.asset(
+                        "assets/images/icono2.png",
+                        width: 350,
+                        height: 100,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
                   ),
                 ),
-              ),
               ),
             ],
           ),

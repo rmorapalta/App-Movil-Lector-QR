@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "213275805104",
+    "project_id": "signin-e4c3f",
+    "storage_bucket": "signin-e4c3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213275805104:android:b623ca772276249d454275",
+        "android_client_info": {
+          "package_name": "com.example.proyect_movil_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213275805104-24pg2t93nco2cqip3bfds9ppmt55kcgd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZdX65IuTYdK7fYDs_J3NP5Wz8oOYWAeg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213275805104-24pg2t93nco2cqip3bfds9ppmt55kcgd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

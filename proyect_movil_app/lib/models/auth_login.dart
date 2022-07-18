@@ -1,26 +1,66 @@
-import 'package:flutter/gestures.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:proyect_movil_app/pages/home.dart';
-import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
-import 'package:snippet_coder_utils/hex_color.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'dart:ui';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+import 'package:snippet_coder_utils/hex_color.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+class AuthPage extends StatefulWidget {
+  const AuthPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<AuthPage> createState() => _AuthPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class Auth {
+  final String token;
+  final String sign;
+  final String redirectUrl;
+  final String created;
+
+  static var data;
+
+  Auth(this.token, this.sign, this.redirectUrl, this.created);
+
+  factory Auth.fromJson(Map<String, dynamic> data) {
+    return Auth(
+      data['token'],
+      data['sign'],
+      data['redirectUrl'],
+      data['created'],
+    );
+  }
+}
+
+List<Auth> parseAuth(String responseBody) {
+  final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
+  return parsed.map<Auth>((json) => Auth.fromJson(json)).toList();
+}
+
+Future<List<Auth>> fetchProducts() async {
+  final response = await http.get(
+      Uri.parse('https://api.sebastian.cl/classroom/v1/authentication/login'));
+  if (response.statusCode == 200) {
+    return parseAuth(response.body);
+  } else {
+    throw Exception('Las credenciales no son correctas, intente nuevamente.');
+  }
+}
+
+final Uri _url = Uri.parse(Auth.data['redirectUrl']);
+
+class _AuthPageState extends State<AuthPage> {
+  @override
   bool isAPIcallProcess = false;
   bool hidePassword = true;
   GlobalKey<FormState> globalFormKey = GlobalKey<FormState>();
-  String? username;
-  String? password;
 
   @override
   Widget build(BuildContext context) {
+    fetchProducts();
     return SafeArea(
       child: Scaffold(
         backgroundColor: HexColor("#283B71"),
@@ -90,8 +130,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
+
           ),
-          
           const SizedBox(
             height: 50,
           ),
@@ -104,29 +144,12 @@ class _LoginPageState extends State<LoginPage> {
                   'Ingresar con tu cuenta UTEM.',
                   style: TextStyle(fontSize: 20.0),
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
-                  );
+                onPressed: () async {
+                  if(await canLaunchUrl(_url)){
+                    await launchUrl(_url);
+                  }
                 },
               ),
-            ),
-          ),
-          
-          const SizedBox(
-            height: 20,
-          ),
-          Center(
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(Icons.star, color: Colors.green[500]),
-                Icon(Icons.star, color: Colors.green[500]),
-                Icon(Icons.star, color: Colors.green[500]),
-                Icon(Icons.star, color: Colors.green[500]),
-                Icon(Icons.star, color: Colors.green[500]),
-              ],
             ),
           ),
         ],
@@ -134,3 +157,8 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+
+
+
+

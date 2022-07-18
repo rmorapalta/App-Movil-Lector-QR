@@ -6,14 +6,14 @@ import 'package:proyect_movil_app/pages/developers.dart';
 
 
 
-class RodrigoPage extends StatefulWidget {
-  const RodrigoPage({Key? key}) : super(key: key);
+class LuisPage extends StatefulWidget {
+  const LuisPage({Key? key}) : super(key: key);
 
   @override
-  State<RodrigoPage> createState() => _RodrigoPageState();
+  State<LuisPage> createState() => _LuisPageState();
 }
 
-class _RodrigoPageState extends State<RodrigoPage> {
+class _LuisPageState extends State<LuisPage> {
   bool isAPIcallProcess = false;
   bool hidePassword = true;
   GlobalKey<FormState> globalFormKey = GlobalKey<FormState>();
@@ -110,7 +110,36 @@ class _RodrigoPageState extends State<RodrigoPage> {
           const Center(child: Text("Luis Rivas Sanchez",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
           const Center(child: Text("luis.rivass@utem.cl",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
           const SizedBox(
-            height: 100,
+            height: 10,
+          ),
+          const Center(
+            child: SizedBox(
+              height: 300,
+              width: 250,
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: 2,
+                    bottom: 5,
+                    top: 30,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Soy estudiante de Ingenieria civil en Computacion con mension en Informatica de la Universidad Tecnologica Metropolitana. Hemos creado como equipo una aplicacion para obtener un orden y recopilacion de informacion de la asistencia de alumnos al campus, en la cual la desarrollamos en flutter con dart. Esta aplicacion fue hecha para el ramo de Computacion Paralela y Distribuida, en donde nos abrio un nuevo mundo de tecnologias como la programacion de App Movil.",
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 40,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -119,8 +148,8 @@ class _RodrigoPageState extends State<RodrigoPage> {
                 alignment: Alignment.center,
                 child: Center(
                   child: SizedBox(
-                    width: 80,
-                    height: 80,
+                    width: 60,
+                    height: 60,
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.pop(
@@ -128,7 +157,7 @@ class _RodrigoPageState extends State<RodrigoPage> {
                         );
                       },
                       child: Image.asset(
-                        "assets/images/icono2.png",
+                        "assets/images/flecha.png",
                         width: 350,
                         height: 100,
                         fit: BoxFit.contain,
@@ -138,6 +167,9 @@ class _RodrigoPageState extends State<RodrigoPage> {
                 ),
               ),
             ],
+          ),
+          const SizedBox(
+            height: 50,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,

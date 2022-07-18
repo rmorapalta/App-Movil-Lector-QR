@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
-
+import 'package:http/http.dart' as http;
 
 
 class CodeQrPage extends StatefulWidget {
@@ -85,6 +85,7 @@ class _CodeQrPageState extends State<CodeQrPage> {
             } else {
               final String code = barcode.rawValue!;
               debugPrint('Escaneo Exitoso! $code');
+
             }
           }
       ),

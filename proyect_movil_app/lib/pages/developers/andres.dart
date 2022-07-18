@@ -82,7 +82,7 @@ class _AndresPageState extends State<AndresPage> {
             ),
             child: Center(
               child: Text(
-                "Luis Rivas Sanchez",
+                "Andres Segarra Pavez",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
@@ -98,7 +98,7 @@ class _AndresPageState extends State<AndresPage> {
             child: Align(
               alignment: Alignment.center,
               child: Image.asset(
-                "assets/images/luis.png",
+                "assets/images/segarra.png",
                 width: 120,
                 fit: BoxFit.contain,
               ),
@@ -107,10 +107,39 @@ class _AndresPageState extends State<AndresPage> {
           const SizedBox(
             height: 10,
           ),
-          const Center(child: Text("Luis Rivas Sanchez",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
-          const Center(child: Text("luis.rivass@utem.cl",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
+          const Center(child: Text("Andres Segarra Pavez",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
+          const Center(child: Text("andres.segarrap@utem.cl",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
           const SizedBox(
-            height: 100,
+            height: 10,
+          ),
+          const Center(
+            child: SizedBox(
+              height: 150,
+              width: 250,
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: 2,
+                    bottom: 5,
+                    top: 30,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Estudiante que cursa el ramo de Paralela y Computacion Distruibuida, se llego a comprender en cierta medida el uso de distintas herramientas bajo el entorno de flutter.",
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 40,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -119,8 +148,8 @@ class _AndresPageState extends State<AndresPage> {
                 alignment: Alignment.center,
                 child: Center(
                   child: SizedBox(
-                    width: 80,
-                    height: 80,
+                    width: 60,
+                    height: 60,
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.pop(
@@ -128,7 +157,7 @@ class _AndresPageState extends State<AndresPage> {
                         );
                       },
                       child: Image.asset(
-                        "assets/images/icono2.png",
+                        "assets/images/flecha.png",
                         width: 350,
                         height: 100,
                         fit: BoxFit.contain,
@@ -138,6 +167,9 @@ class _AndresPageState extends State<AndresPage> {
                 ),
               ),
             ],
+          ),
+          const SizedBox(
+            height: 50,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,

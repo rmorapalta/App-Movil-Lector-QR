@@ -6,14 +6,14 @@ import 'package:proyect_movil_app/pages/developers.dart';
 
 
 
-class LuisPage extends StatefulWidget {
-  const LuisPage({Key? key}) : super(key: key);
+class RodrigoPage extends StatefulWidget {
+  const RodrigoPage({Key? key}) : super(key: key);
 
   @override
-  State<LuisPage> createState() => _LuisPageState();
+  State<RodrigoPage> createState() => _RodrigoPageState();
 }
 
-class _LuisPageState extends State<LuisPage> {
+class _RodrigoPageState extends State<RodrigoPage> {
   bool isAPIcallProcess = false;
   bool hidePassword = true;
   GlobalKey<FormState> globalFormKey = GlobalKey<FormState>();
@@ -82,7 +82,7 @@ class _LuisPageState extends State<LuisPage> {
             ),
             child: Center(
               child: Text(
-                "Luis Rivas Sanchez",
+                "Rodrigo Mora Palta",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
@@ -98,7 +98,7 @@ class _LuisPageState extends State<LuisPage> {
             child: Align(
               alignment: Alignment.center,
               child: Image.asset(
-                "assets/images/luis.png",
+                "assets/images/mora.png",
                 width: 120,
                 fit: BoxFit.contain,
               ),
@@ -107,10 +107,39 @@ class _LuisPageState extends State<LuisPage> {
           const SizedBox(
             height: 10,
           ),
-          const Center(child: Text("Luis Rivas Sanchez",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
-          const Center(child: Text("luis.rivass@utem.cl",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
+          const Center(child: Text("Rodrigo Mora Palta",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
+          const Center(child: Text("rmora@utem.cl",style: TextStyle(fontSize: 20.0, color: Colors.white70))),
           const SizedBox(
-            height: 100,
+            height: 10,
+          ),
+          const Center(
+            child: SizedBox(
+              height: 150,
+              width: 250,
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: 2,
+                    bottom: 5,
+                    top: 30,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Estudiante que cursa el ramo de Paralela y Computacion Distruibuida, se llego a comprender en cierta medida el uso de distintas herramientas bajo el entorno de flutter.",
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 40,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -119,8 +148,8 @@ class _LuisPageState extends State<LuisPage> {
                 alignment: Alignment.center,
                 child: Center(
                   child: SizedBox(
-                    width: 80,
-                    height: 80,
+                    width: 60,
+                    height: 60,
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.pop(
@@ -128,8 +157,8 @@ class _LuisPageState extends State<LuisPage> {
                         );
                       },
                       child: Image.asset(
-                        "assets/images/icono2.png",
-                        width: 350,
+                        "assets/images/flecha.png",
+                        width: 200,
                         height: 100,
                         fit: BoxFit.contain,
                       ),
@@ -138,6 +167,9 @@ class _LuisPageState extends State<LuisPage> {
                 ),
               ),
             ],
+          ),
+          const SizedBox(
+            height: 50,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,

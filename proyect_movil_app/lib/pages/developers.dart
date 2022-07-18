@@ -202,8 +202,8 @@ class _DevPageState extends State<DevPage> {
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                   color: Colors.white70,
-    ),
                 ),
+              ),
             ),
           ),
           const SizedBox(
@@ -231,7 +231,7 @@ class _DevPageState extends State<DevPage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const RodrigoPage()),
+                    MaterialPageRoute(builder: (context) => const AndresPage()),
                   );
                 },
               ),
@@ -274,4 +274,3 @@ class _DevPageState extends State<DevPage> {
     );
   }
 }
-
