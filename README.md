@@ -20,4 +20,8 @@
 
 ## ✨ Nota
 
--Para no generar problemas al momento de iniciar la aplicacion, hay que sacar la carpeta "proyect_movil_app" de la carpeta de origen "App-Movil-Lector-QR" para no ocurrir problemas de rutas al momento de ejecutar el proyecto.
+- Antes de iniciar la aplicacion, entrar a la carpeta :
+```
+$ cd [PATH]/App-Movil-Lector-QR
+```
+Descripcion: Para no generar problemas al momento de iniciar la aplicacion, hay que sacar la carpeta "proyect_movil_app" de la carpeta de origen "App-Movil-Lector-QR" para no ocurrir problemas de rutas al momento de ejecutar el proyecto.
